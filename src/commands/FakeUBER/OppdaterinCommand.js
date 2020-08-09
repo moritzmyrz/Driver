@@ -26,7 +26,11 @@ module.exports = class TestCommand extends BaseCommand {
       .setTitle(date)
       .setDescription(oppdatering);
 
-    oppdateringsKanal.send(embed);
+    oppdateringsKanal.send(embed)
+      .then(m => {
+        m.react(message.guild.emojis.cache.get('742127048822095992'))
+        m.react(message.guild.emojis.cache.get('742127048474099804'))
+      });
 
   }
 }
