@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/bot.js",
     "start": "node ./src/bot.js"
   },
@@ -12,15 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2",
-    "cheerio": "^1.0.0-rc.3",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
-    "htmlparser2": "^4.1.0",
-    "image-data-uri": "^2.0.1",
-    "minecraft-server-util": "^1.3.0",
-    "puppeteer": "^5.2.1",
-    "request": "^2.88.2",
-    "request-promise": "^4.2.6"
+    "minecraft-server-util": "^1.3.0"
   }
 }

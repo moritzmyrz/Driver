@@ -10,9 +10,11 @@ module.exports = class MessageEvent extends BaseEvent {
 
     if (message.channel.id !== '726574778747715615') {
       if (message.content.startsWith('!') || message.content.startsWith('-')) {
-        message.delete({ timeout: 15000 });
-        message.channel.send(`<@${message.author.id}>, vi har en egen kanal for kommandoer. ->> <#726574778747715615> <<-`)
-          .then(message => message.delete({ timeout: 15000 }));
+        if (message.author.id !== '381453904749002756') {
+          message.delete({ timeout: 15000 });
+          message.channel.send(`<@${message.author.id}>, vi har en egen kanal for kommandoer. ->> <#726574778747715615> <<-`)
+            .then(message => message.delete({ timeout: 15000 }));
+        }
       }
     }
 
