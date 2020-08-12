@@ -4,7 +4,7 @@ const ping = require('minecraft-server-util');
 
 module.exports = class TestCommand extends BaseCommand {
   constructor() {
-    super('server', 'testing', [ "server", "online", "o"]);
+    super('server', 'Spiller', [ "server", "online", "o"]);
   }
 
   run(client, message, args) {

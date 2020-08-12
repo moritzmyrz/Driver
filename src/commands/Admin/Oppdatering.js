@@ -14,7 +14,7 @@ module.exports = class TestCommand extends BaseCommand {
     const moritz = '381453904749002756';
     const oppdateringsKanal = client.channels.cache.get('719927990473064469');
 
-    if (message.author.id != moritz) return;
+    if (message.author.id != moritz) return message.channel.send('Du har ikke tilgang til dette.');
 
     console.log(message.content);
 

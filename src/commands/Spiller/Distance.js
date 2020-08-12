@@ -4,7 +4,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = class TestCommand extends BaseCommand {
   constructor() {
-    super('distanse', 'testing', [ "distanse", "distance", "dis" ]);
+    super('distanse', 'Spiller', [ "distanse", "distance", "dis" ]);
   }
 
   run(client, message, args) {

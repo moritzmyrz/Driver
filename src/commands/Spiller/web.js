@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = class TestCommand extends BaseCommand {
   constructor() {
-    super('web', 'testing', [ "lenker", "nett", "web", "links"]);
+    super('web', 'Spiller', [ "lenker", "nett", "web", "links"]);
   }
 
   run(client, message, args) {
