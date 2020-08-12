@@ -26,7 +26,7 @@ module.exports = class TestCommand extends BaseCommand {
       .setTitle(date)
       .setDescription(oppdatering);
 
-    oppdateringsKanal.send(embed)
+    oppdateringsKanal.send('<@&743068390586974258>', embed)
       .then(m => {
         m.react(message.guild.emojis.cache.get('742127048822095992'))
         m.react(message.guild.emojis.cache.get('742127048474099804'))
