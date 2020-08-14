@@ -9,6 +9,8 @@ module.exports = class GuildMemberAddEvent extends BaseEvent {
   async run(client, member) {
 
     const guild = client.guilds.cache.get('718959642482573343');
+    const spillerRole = guild.roles.cache.get('729077085905092739');
+    const moritz = client.users.cache.get('381453904749002756');
     // List of welcome-gifs
     let gifs = [
       "https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif",
@@ -26,6 +28,9 @@ module.exports = class GuildMemberAddEvent extends BaseEvent {
       // min and max included
       return Math.floor(Math.random() * (max - min + 1) + min);
     }
+
+    member.roles.add(spillerRole)
+      .catch(err => moritz.send(err));
 
     // Welcome Embed
     const embed = new Discord.MessageEmbed()
