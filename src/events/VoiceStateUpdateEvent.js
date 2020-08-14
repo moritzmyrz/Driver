@@ -7,15 +7,23 @@ module.exports = class WoiceStateUpdateEvent extends BaseEvent {
   
   async run(client, oldState, newState) {
     const member = oldState.member
-    const staffChat = '719929887246254100';
-    const guild = client.guilds.cache.get('718959642482573343');
-    const staffVCRole = guild.roles.cache.get('743865357223067759');
+    const staffChat = client.channels.cache.get('719929887246254100');
 
-    if (oldState.channelID === staffChat) {
-      member.roles.remove(staffVCRole);
+    if (oldState.channel === staffChat) {
+      staffChat.overwritePermissions([
+        {
+          id: member.id,
+          deny: ['VIEW_CHANNEL']
+        }
+      ])
     }
-    if (newState.channelID === staffChat) {
-      member.roles.add(staffVCRole);
+    if (newState.channel === staffChat) {
+      staffChat.overwritePermissions([
+        {
+          id: member.id,
+          allow: ['VIEW_CHANNEL']
+        }
+      ])
     }
 
   }
