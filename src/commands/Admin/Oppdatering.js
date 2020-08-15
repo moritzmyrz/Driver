@@ -1,8 +1,11 @@
 const BaseCommand = require('../../utils/structures/BaseCommand');
 const { MessageEmbed } = require('discord.js');
 
-var today = new Date();
-var date = (today.getDate())+'/'+(today.getMonth()+1);
+let ts = Date.now();
+
+let date_ob = new Date(ts);
+let date = date_ob.getDate();
+let month = date_ob.getMonth() + 1;
 
 module.exports = class TestCommand extends BaseCommand {
   constructor() {
@@ -12,7 +15,7 @@ module.exports = class TestCommand extends BaseCommand {
   run(client, message, args) {
   
     const moritz = '381453904749002756';
-    const oppdateringsKanal = client.channels.cache.get('719927990473064469');
+    const oppdateringsKanal = client.channels.cache.get('719929966191444009');
 
     if (message.author.id != moritz) return message.channel.send('Du har ikke tilgang til dette.');
 
@@ -23,7 +26,7 @@ module.exports = class TestCommand extends BaseCommand {
     console.log(oppdatering);
 
     let embed = new MessageEmbed()
-      .setTitle(date)
+      .setTitle(`${date}/${month}`)
       .setDescription(oppdatering);
 
     oppdateringsKanal.send('<@&743068390586974258>', embed)

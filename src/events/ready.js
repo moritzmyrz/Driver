@@ -28,20 +28,8 @@ module.exports = class ReadyEvent extends BaseEvent {
         })
         .catch((error) => {
           let online = client.channels.cache.get('720963306671833149');
-          online.setName(`Pålogget » 0`)
+          online.setName(`Status » ❌ Offline`)
         });
       }, 45000)
-
-      setInterval(() => {
-        ping('mc.fakeuber.xyz', 25565, { protocolVersion: 498, connectTimeout: 1000 * 10 })
-          .then((response) => {
-            let status = client.channels.cache.get('734547461124915431');
-            status.setName(`Status » 🟢 Online`)
-          })
-          .catch((error) => {
-            let status = client.channels.cache.get('734547461124915431');
-            status.setName(`Pålogget » 🔴 Offline`)
-          });
-        }, 120000)
   }
 }
